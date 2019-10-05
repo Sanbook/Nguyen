@@ -23,7 +23,7 @@ def baliho():
         name = a['name']
         n.append(a['name'])
         print (logo)
-        print ('Anda login menggunakan akun' + name + ).center(44)
+        print ('Anda login menggunakan akun' + name + )
         print ' '
 
     except (KeyError,IOError):
