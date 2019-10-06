@@ -179,7 +179,7 @@ def main():
             print ("[!] Exiting Program")
             sys.exit()
             
-        elif cek.lower() == 'exit':
+        elif cek.lower() == 'asu':
             print ("[!] SEMOGA BERSIL")
             mbusek_batire_nyong()
 
