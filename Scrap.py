@@ -110,7 +110,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        posts(post())
+        posts(recyle())
 
 
 
@@ -125,7 +125,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        tagged(post())
+        tagged(recyle())
 
 
 
@@ -140,7 +140,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        photos(post())
+        photos(recyle())
 
 
 
@@ -155,7 +155,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        albums(post())
+        albums(recyle())
 
 
 
@@ -170,7 +170,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        videos(post())
+        videos(recyle())
 
 
 
@@ -185,7 +185,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        friends(post())
+        friends(recyle())
 
 
 
@@ -200,7 +200,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        friendrequests(post())
+        friendrequests(recyle())
 
 
 
@@ -215,7 +215,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        subscribedto(post())
+        subscribedto(recyle())
 
 
 
@@ -230,7 +230,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        inbox(post())
+        inbox(recyle())
 
 
 
@@ -245,7 +245,7 @@ def recyle():
             print ('[!] Failed load access token   ')
             print ("[!] type 'token' to generate access token")
             recyle()
-        groups(post())
+        groups(recyle())
 
     elif cek in ['0','00']:
         print ('[*] Back to main menu')
