@@ -1,6 +1,5 @@
 import json , sys , hashlib , os , time , urllib3, getpass
-#⚙  ~/Nguyen   master 
-#✘ ⚙  ~/Nguyen   master 
+
 Bocaeh = []
 try:
     import requests
