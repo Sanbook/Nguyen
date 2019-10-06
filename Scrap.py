@@ -1,4 +1,4 @@
-import json , sys , hashlib , os , time , getpass
+import json , sys , hashlib , os , time , urllib3, getpass
 
 
 try:
@@ -730,7 +730,7 @@ def groups(posts):
 def main():
     global target_id
     try:
-        cek = input('Sanbook' ' >> ')
+        cek = raw_input('Sanbook' ' >> ')
         if cek.lower() == 'home':
             menu_awal()
             main()
