@@ -429,7 +429,7 @@ def post():
 #An individual entry in a profile's feed. The profile could be a user, page, app, or group.
 
 def feed(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -458,7 +458,7 @@ def feed(posts):
         recyle()
 
 def tagged(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -488,7 +488,7 @@ def tagged(posts):
 
 
 def photos(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -518,7 +518,7 @@ def photos(posts):
 
 
 def albums(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -548,7 +548,7 @@ def albums(posts):
 
 
 def videos(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -578,7 +578,7 @@ def videos(posts):
 
 
 def friends(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -607,7 +607,7 @@ def friends(posts):
 
 
 def friendrequests(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -637,7 +637,7 @@ def friendrequests(posts):
 
 
 def subscribedto(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -666,7 +666,7 @@ def subscribedto(posts):
 
 
 def inbox(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
@@ -696,7 +696,7 @@ def inbox(posts):
 
 
 def groups(posts):
-    global token , WT
+    global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
     print ('[*] Start')
