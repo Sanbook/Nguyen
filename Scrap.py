@@ -22,7 +22,7 @@ def baliho():
         name = diCeluk['name']
         Bocaeh.append(diCeluk['name'])
         print (logo)
-        print ('Anda login menggunakan akun' + name)
+        print ('Anda login menggunakan akun '   '[' + name+ ']')
 
     except (KeyError,IOError):
         print (logo)
