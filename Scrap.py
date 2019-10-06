@@ -1,6 +1,5 @@
 import json , sys , hashlib , os , time , getpass
-reload (sys)
-sys . setdefaultencoding ( 'utf8' )
+
 
 try:
     import requests
@@ -24,22 +23,21 @@ def baliho():
         n.append(a['name'])
         print (logo)
         print ('Anda login menggunakan akun' + name)
-        print ' '
 
     except (KeyError,IOError):
         print (logo)
 
 
 def menu_awal():
-    print '''
+    print ('''
     [  home  ]               [  login ]
                 [ recyle ]
     [ logout ]               [  exit  ]
-'''
+''')
 
 
 def menu_recyle():
-    print '''
+    print ('''
    PILIHAN      INFO
  ---------   ------------------------------------
     [ 01 ]      posts
@@ -54,11 +52,11 @@ def menu_recyle():
     [ 10 ]      groups
 
     [ 00 ]      back to main menu
-'''
+''')
 
 
 def get(data):
-    print '[*] Generate access token '
+    print ('[*] Generate access token ')
 
     try:
         os.mkdir('cookie')
@@ -72,21 +70,21 @@ def get(data):
 
         b.write(a['access_token'])
         b.close()
-        print '[*] successfully generate access token'
-        print '[*] Your access token is stored in cookie/token.log'
+        print ('[*] successfully generate access token')
+        print ('[*] Your access token is stored in cookie/token.log')
         exit()
     except KeyError:
-        print '[!] Failed to generate access token'
-        print '[!] Check your connection / email or password'
+        print ('[!] Failed to generate access token')
+        print ('[!] Check your connection / email or password')
         os.remove('cookie/token.log')
         main()
     except requests.exceptions.ConnectionError:
-        print '[!] Failed to generate access token'
-        print '[!] Connection error !!!'
+        print ('[!] Failed to generate access token')
+        print ('[!] Connection error !!!')
         os.remove('cookie/token.log')
         main()
 def id():
-    print '[*] login to your facebook account         ';id = raw_input('[?] Username : ');pwd = getpass.getpass('[?] Password : ');API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
+    print ('[*] login to your facebook account         ');id = raw_input('[?] Username : ');pwd = getpass.getpass('[?] Password : ');API_SECRET = '62f8ce9f74b12f84c123cc23437a4a32';data = {"api_key":"882a8490361da98702bf97a021ddc14d","credentials_type":"password","email":id,"format":"JSON", "generate_machine_id":"1","generate_session_cookies":"1","locale":"en_US","method":"auth.login","password":pwd,"return_ssl_resources":"0","v":"1.0"};sig = 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.0'+API_SECRET
     x = hashlib.new('md5')
     x.update(sig)
 
@@ -102,14 +100,14 @@ def recyle():
 
     if cek in ['1','01']:
         SAN = 'posts'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         posts(post())
 
@@ -117,14 +115,14 @@ def recyle():
 
     elif cek in ['2','02']:
         SAN = 'tagged'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         tagged(post())
 
@@ -132,14 +130,14 @@ def recyle():
 
     elif cek in ['3','03']:
         SAN = 'photos'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         photos(post())
 
@@ -147,29 +145,29 @@ def recyle():
 
     elif cek in ['4','04']:
         SAN = 'albums'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         albums(post())
 
 
 
     elif cek in ['5','05']:
-        SAN = 'videos'
-        print '[*] load access token    '
+        SAN = ('videos')
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         videos(post())
 
@@ -177,14 +175,14 @@ def recyle():
 
     elif cek in ['6','06']:
         SAN = 'friends'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         friends(post())
 
@@ -192,14 +190,14 @@ def recyle():
 
     elif cek in ['7','07']:
         SAN = 'friendrequests'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         friendrequests(post())
 
@@ -207,14 +205,14 @@ def recyle():
 
     elif cek in ['8','08']:
         SAN = 'subscribedto'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         subscribedto(post())
 
@@ -222,14 +220,14 @@ def recyle():
 
     elif cek in ['9','09']:
         SAN = 'inbox'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         inbox(post())
 
@@ -237,46 +235,46 @@ def recyle():
 
     elif cek in ['10','groups']:
         SAN = 'groups'
-        print '[*] load access token    '
+        print ('[*] load access token    ')
 
         try:
             token = open('cookie/token.log','r').read()
-            print '[*] Success load access token'
+            print ('[*] Success load access token')
         except IOError:
-            print '[!] Failed load access token   '
-            print "[!] type 'token' to generate access token"
+            print ('[!] Failed load access token   ')
+            print ("[!] type 'token' to generate access token")
             recyle()
         groups(post())
 
     elif cek in ['0','00']:
-        print '[*] Back to main menu'
+        print ('[*] Back to main menu')
         main()
     elif cek.lower() == 'menu':
         menu_recyle()
         recyle()
     elif cek.lower() == 'exit':
-        print '[!] Exiting program'
+        print ('[!] Exiting program')
         sys.exit()
     elif cek.lower() == 'token':
         try:
             open('cookie/token.log')
-            print '[!] an access token already exists'
+            print ('[!] an access token already exists')
             cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
             if cek.lower() != 'y':
-                print '[*] Canceling '
+                print ('[*] Canceling ')
                 recyle()
         except IOError:
             pass
 
-        print '\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n'
-        print '[Warn] please turn off your VPN before using this feature !!!'
+        print ('\n' + '[*] Generate Access token facebook [*]''\n')
+        print ('[Warn] please turn off your VPN before using this feature !!!')
         id()
     else:
         if cek == '':
             recyle()
         else:
-            print "[!] command '"+cek+"' not found"
-            print '[!] type "recyle" to show menu recyle'
+            print ("[!] command '"+cek+"' not found")
+            print ('[!] type "recyle" to show menu recyle')
             recyle()
   except KeyboardInterrupt:
     recyle()
@@ -297,7 +295,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['posts']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['posts']['data']
 
 
@@ -317,7 +315,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['tagged']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['tagged']['data']
 
 
@@ -329,7 +327,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['photos']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['photos']['data']
 
 
@@ -341,7 +339,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['albums']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['albums']['data']
 
 
@@ -353,7 +351,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['videos']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['videos']['data']
 
 
@@ -365,7 +363,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['friends']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['friends']['data']
 
 
@@ -377,7 +375,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['friendrequests']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['friendrequests']['data']
 
 
@@ -389,7 +387,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['subscribedto']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['subscribedto']['data']
 
 
@@ -401,7 +399,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['inbox']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['inbox']['data']
 
 
@@ -413,7 +411,7 @@ def post():
             result = json.loads(r.text)
 
             for i in result['groups']['data']:
-                print '\r[*] %s scrap   '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
+                print ('\r[*] %s scrap   '%(i['id'])),;sys.stdout.flush();time.sleep(0.01)
             return result['groups']['data']
 
     except KeyError:
@@ -422,7 +420,7 @@ def post():
         recyle()
     except requests.exceptions.ConnectionError:
         print ('[!] Connection Error')
-        print '[!] Stopped'
+        print ('[!] Stopped')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -433,8 +431,8 @@ def post():
 def feed(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -448,12 +446,12 @@ def feed(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Penerbitan sekitar'  post['created_time'] 'dulu,')
-                print ( 'dengan refrensiUID'  post['id'] 'sudah dihapus')
+                print ( 'Penerbitan sekitar'  +post['created_time']+ 'dulu,')
+                print ( 'dengan refrensiUID'  +post['id']+ 'sudah dihapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -462,8 +460,8 @@ def feed(posts):
 def tagged(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -477,12 +475,12 @@ def tagged(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Penerbitan :'  post['created_time'])
-                print ( 'ID Post    :'  post['id'] 'Terhapus')
+                print ( 'Penerbitan :'  +post['created_time'])
+                print ( 'ID Post    :'  +post['id']+ 'Terhapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -492,8 +490,8 @@ def tagged(posts):
 def photos(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -507,12 +505,12 @@ def photos(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Penerbitan :'  post['created_time'])
-                print ( 'ID Post    :'  post['id'] 'Terhapus')
+                print ( 'Penerbitan :'  +post['created_time'])
+                print ( 'ID Post    :'  +post['id']+ 'Terhapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -522,8 +520,8 @@ def photos(posts):
 def albums(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -537,12 +535,12 @@ def albums(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Penerbitan :'  post['created_time'])
-                print ( 'ID Post    :'  post['id'] 'Terhapus')
+                print ( 'Penerbitan :'  +post['created_time'])
+                print ( 'ID Post    :'  +post['id']+ 'Terhapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -552,8 +550,8 @@ def albums(posts):
 def videos(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -567,12 +565,12 @@ def videos(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Penerbitan :'  post['created_time'])
-                print ( 'ID Post    :'  post['id'] 'Terhapus')
+                print ( 'Penerbitan :'  +post['created_time'])
+                print ( 'ID Post    :'  +post['id']+ 'Terhapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -582,8 +580,8 @@ def videos(posts):
 def friends(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -596,12 +594,12 @@ def friends(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Sahabatmu '  post['name'] 'yang mengecewakan,')
-                print ( 'pemilik id'  post['id'] 'sudah dihapus dari daftar teman.')
+                print ( 'Sahabatmu '  +post['name']+ 'yang mengecewakan,')
+                print ( 'pemilik id'  +post['id']+ 'sudah dihapus dari daftar teman.')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -611,8 +609,8 @@ def friends(posts):
 def friendrequests(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -626,12 +624,12 @@ def friendrequests(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Anda menolak permintaan teman dari'  post['name'])
-                print ( 'kami menghapus'  post['id'] 'dan berhasil...')
+                print ( 'Anda menolak permintaan teman dari'  +post['name'])
+                print ( 'kami menghapus'  +post['id']+ 'dan berhasil...')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -641,8 +639,8 @@ def friendrequests(posts):
 def subscribedto(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -655,12 +653,12 @@ def subscribedto(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Anda pernah mengikuti'  post['name'])
-                print ( 'kami menghapus'  post['id'] 'kini Anda sudah tidak mengikutinya...')
+                print ( 'Anda pernah mengikuti'  +post['name'])
+                print ( 'kami menghapus'  +post['id']+ 'kini Anda sudah tidak mengikutinya...')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -670,8 +668,8 @@ def subscribedto(posts):
 def inbox(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -685,12 +683,12 @@ def inbox(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Pesan yg dikirim oleh'  post['name'])
-                print ( 'dengan ID Pesan'  post['id'] 'sudah dihapus')
+                print ( 'Pesan yg dikirim oleh'  +post['name'])
+                print ( 'dengan ID Pesan'  +post['id']+ 'sudah dihapus')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
@@ -700,8 +698,8 @@ def inbox(posts):
 def groups(posts):
     global token , WT
 
-    print '\r[*] All post id successfully retrieved          '
-    print '[*] Start'
+    print ('\r[*] All post id successfully retrieved          ')
+    print ('[*] Start')
 
     try:
         counter = 0
@@ -715,85 +713,98 @@ def groups(posts):
 #edge (from) /{user-id}/feed, /{page-id}/feed, /{event-id}/feed, or /{group-id}/feed edges.
             try:
                 cek = a['error']['message']
-                print ( 'ID Post    :'  post['id'] 'Gagal')
+                print ( 'ID Post    :'  +post['id']+ 'Gagal')
             except TypeError:
-                print ( 'Nama Group :'  post['name'])
-                print ( 'ID Group    :'  post['id'] 'berhasil leaved...')
+                print ( 'Nama Group :'  +post['name'])
+                print ( 'ID Group    :'  +post['id']+ 'berhasil leaved...')
                 counter += 1
-        print '[*] done'
+        print ('[*] done')
         recyle()
     except KeyboardInterrupt:
         print ('\r[!] Stopped')
         recyle()
 
+
+
+
 def main():
-  global target_id
-
-  try:
-    cek = raw_input('Sanbook' ' >> ')
-
-    if cek.lower() == 'home':
-        menu_awal()
-        main()
-
-    elif cek.lower() == 'login':
-        try:
-            open('cookie/token.log')
-            print '[!] an access token already exists'
-            cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
-            if cek.lower() != 'y':
-                print '[*] Canceling '
-                recyle()
-        except IOError:
-            pass
-        print '\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n'
-        print '[Warn] please turn off your VPN before using this feature !!!'
-        id()
-
-
-    elif cek.lower() == 'recyle':
-        menu_recyle()
-        recyle()
-
-
-    elif cek.lower() == 'logout':
-        print '''
-        [!] Anda telah keluar facebook...
-'''
-        a = raw_input("[!] type 'delete' to continue : ")
-        if a.lower() == 'delete':
+    global target_id
+    try:
+        cek = input('Sanbook' ' >> ')
+        if cek.lower() == 'home':
+            menu_awal()
+            main()
+        elif cek.lower() == 'login':
             try:
-                os.system('rm -rf cookie/token.log')
-                print '[*] Success delete cookie/token.log'
-                main()
-            except OSError:
-                print '[*] failed to delete cookie/token.log'
-                main()
-        else:
-            print '[*] failed to delete cookie/token.log'
-            main()
+                open('cookie/token.log')
+                print ('[!] an access token already exists')
+                cek = raw_input('[?] Are you sure you want to continue [Y/N] ')
+                if cek.lower() != 'y':
+                    print ('[*] Canceling ')
+                    recyle()
+            except IOError:
+                pass
+            print ('\n' + '[*] Generate Access token facebook [*]'.center(44) + '\n')
+            print ('[Warn] please turn off your VPN before using this feature !!!')
+            id()
 
-    elif cek.lower() == 'exit':
-        print "[!] Exiting Program"
-        sys.exit()
 
-    else:
-        if cek == '':
-            main()
+        elif cek.lower() == 'recyle':
+            
+            menu_recyle()
+            recyle()
+
+
+        elif cek.lower() == 'logout':
+            
+            print ('''[!] Anda telah keluar facebook...''')
+            
+            a = raw_input("[!] type 'delete' to continue : ")
+            
+            if a.lower() == 'delete':
+                
+                try:
+                    
+                    os.system('rm -rf cookie/token.log')
+                    
+                    print ('[*] Success delete cookie/token.log')
+                    
+                    main()
+                    
+                except OSError:
+                    
+                    print ('[*] failed to delete cookie/token.log')
+                    
+                    main()
+            else:
+                
+                print ('[*] failed to delete cookie/token.log')
+                
+                main()
+
+        elif cek.lower() == 'exit':
+            print ("[!] Exiting Program")
+            sys.exit()
+
         else:
-            print "[!] command '"+cek+"' not found"
-            print '[!] type "help" to show command'
-            main()
-  except KeyboardInterrupt:
-    main()
-  except IndexError:
-    print '[!] invalid parameter on command : ' + cek
-    main()
+            
+            if cek == '':
+                main()
+            else:
+                print ("[!] command '"+cek+"' not found")
+                print ('[!] type "help" to show command')
+                main()
+                
+                
+    except KeyboardInterrupt:
+        main()
+    except IndexError:
+        print ('[!] invalid parameter on command : ' + cek)
+        main()
 
 
 
 if __name__ == '__main__':
-
-    baliho()
     menu_awal()
+    
     main()
