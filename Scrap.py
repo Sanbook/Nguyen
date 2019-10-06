@@ -18,7 +18,7 @@ def baliho():
     try:
         token = open('cookie/token.log','r').read()
         UserMlebu = requests.get('https://graph.facebook.com/me?access_token=' + token)
-        diCeluk = json.loads(r.text)
+        diCeluk = json.loads(UserMlebu.text)
         name = diCeluk['name']
         Bocaeh.append(diCeluk['name'])
         print (logo)
