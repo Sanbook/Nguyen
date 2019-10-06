@@ -1,6 +1,6 @@
 import json , sys , hashlib , os , time , urllib3, getpass
 
-
+Bocaeh = []
 try:
     import requests
 except ImportError:
@@ -17,10 +17,10 @@ logo=('''
 def baliho():
     try:
         token = open('cookie/token.log','r').read()
-        r = requests.get('https://graph.facebook.com/me?access_token=' + token)
-        a = json.loads(r.text)
-        name = a['name']
-        n.append(a['name'])
+        UserMlebu = requests.get('https://graph.facebook.com/me?access_token=' + token)
+        diCeluk = json.loads(r.text)
+        name = diCeluk['name']
+        Bocaeh.append(diCeluk['name'])
         print (logo)
         print ('Anda login menggunakan akun' + name)
 
