@@ -94,7 +94,7 @@ def id():
 
 def recyle():
   try:
-    global type, SAN , token
+    global SAN , token
 
     cek = raw_input('Sanbook' '/''Recycle')
 
@@ -428,7 +428,7 @@ def post():
 #Post /{post-id}
 #An individual entry in a profile's feed. The profile could be a user, page, app, or group.
 
-def feed(posts):
+def feed(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -436,9 +436,9 @@ def feed(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -457,7 +457,7 @@ def feed(posts):
         print ('\r[!] Stopped')
         recyle()
 
-def tagged(posts):
+def tagged(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -465,9 +465,9 @@ def tagged(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -487,7 +487,7 @@ def tagged(posts):
         recyle()
 
 
-def photos(posts):
+def photos(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -495,9 +495,9 @@ def photos(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -517,7 +517,7 @@ def photos(posts):
         recyle()
 
 
-def albums(posts):
+def albums(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -525,9 +525,9 @@ def albums(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -547,7 +547,7 @@ def albums(posts):
         recyle()
 
 
-def videos(posts):
+def videos(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -555,9 +555,9 @@ def videos(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -577,7 +577,7 @@ def videos(posts):
         recyle()
 
 
-def friends(posts):
+def friends(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -585,9 +585,9 @@ def friends(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
             r = requests.delete('https://graph.facebook.com/me/friends?uid={id}&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
 #Refrensi Node tentang POST di https://developers.facebook.com/docs/graph-api/reference/post/
@@ -606,7 +606,7 @@ def friends(posts):
         recyle()
 
 
-def friendrequests(posts):
+def friendrequests(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -614,9 +614,9 @@ def friendrequests(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -636,7 +636,7 @@ def friendrequests(posts):
         recyle()
 
 
-def subscribedto(posts):
+def subscribedto(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -644,9 +644,9 @@ def subscribedto(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
             r = requests.post('https://graph.facebook.com/{id}/subscribers?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
 #Refrensi Node tentang POST di https://developers.facebook.com/docs/graph-api/reference/post/
@@ -665,7 +665,7 @@ def subscribedto(posts):
         recyle()
 
 
-def inbox(posts):
+def inbox(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -673,9 +673,9 @@ def inbox(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}/messages?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -695,7 +695,7 @@ def inbox(posts):
         recyle()
 
 
-def groups(posts):
+def groups(result):
     global token , SAN
 
     print ('\r[*] All post id successfully retrieved          ')
@@ -703,9 +703,9 @@ def groups(posts):
 
     try:
         counter = 0
-        for post in posts:
+        for post in result:
             if counter >= 50:
-                break
+                continue
 
             r = requests.post('https://graph.facebook.com/{id}?method=DELETE&access_token={token}'.format(id=post['id'],token=token))
             a = json.loads(r.text)
@@ -805,6 +805,8 @@ def main():
 
 
 if __name__ == '__main__':
+    baliho()
+    
     menu_awal()
     
     main()
